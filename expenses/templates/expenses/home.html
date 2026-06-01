@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">
+    RightOff Dashboard
+</h1>
+
+<div class="row mb-4">
+
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+
+                <h5 class="card-title">
+                    Total Expenses
+                </h5>
+
+                <h2>
+                    {{ total_expenses }}
+                </h2>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+
+                <h5 class="card-title">
+                    Total Amount
+                </h5>
+
+                <h2>
+                    ${{ total_amount|default:"0.00" }}
+                </h2>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="card shadow-sm">
+
+    <div class="card-header">
+        Add Expense
+    </div>
+
+    <div class="card-body">
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Save Expense
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
