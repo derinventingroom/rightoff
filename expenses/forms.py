@@ -12,11 +12,27 @@ class ExpenseForm(forms.ModelForm):
             'description',
             'amount'
         ]
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-        for field in self.fields.values():
-            field.widget.attrs.update({
-                'class': 'form-control'
-            })
+        widgets = {
+            'date': forms.DateInput(
+                attrs={
+                    'type': 'date',
+                    'class': 'form-control'
+                }
+            ),
+            'category': forms.Select(
+                attrs={
+                    'class': 'form-select'
+                }
+            ),
+            'description': forms.TextInput(
+                attrs={
+                    'class': 'form-control'
+                }
+            ),
+            'amount': forms.NumberInput(
+                attrs={
+                    'class': 'form-control',
+                    'step': '0.01'
+                }
+            ),
+        }
