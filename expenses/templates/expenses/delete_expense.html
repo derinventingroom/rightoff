@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow-sm">
+
+    <div class="card-body">
+
+        <h2>
+            Delete Expense
+        </h2>
+
+        <p>
+            Are you sure you want to delete:
+        </p>
+
+        <p>
+            <strong>
+                {{ expense.description }}
+            </strong>
+            -
+            ${{ expense.amount }}
+        </p>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <button
+                type="submit"
+                class="btn btn-danger"
+            >
+                Yes, Delete
+            </button>
+
+            <a
+                href="/list/"
+                class="btn btn-secondary"
+            >
+                Cancel
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
