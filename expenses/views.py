@@ -26,6 +26,13 @@ def home(request):
 
     recent_expenses = Expense.objects.order_by('-date')[:5]
 
+    category_totals = (
+    Expense.objects
+    .values('category')
+    .annotate(total=Sum('amount'))
+    .order_by('category')
+)
+
     return render(
         request,
         'expenses/home.html',
@@ -34,6 +41,7 @@ def home(request):
             'total_expenses': total_expenses,
             'total_amount': total_amount,
             'recent_expenses': recent_expenses,
+            'category_totals': category_totals,
         }
     )
 
@@ -42,11 +50,39 @@ def expense_list(request):
 
     expenses = Expense.objects.all().order_by('-date')
 
+    search_query = request.GET.get('search')
+    category_filter = request.GET.get('category')
+
+    if search_query:
+        expenses = expenses.filter(
+            description__icontains=search_query
+        )
+
+    if category_filter:
+        expenses = expenses.filter(
+            category=category_filter
+        )
+
+    categories = [
+        'Software',
+        'Equipment',
+        'Internet',
+        'Office Supplies',
+        'Mileage',
+        'Advertising',
+        'Education',
+        'Travel',
+        'Other',
+    ]
+
     return render(
         request,
         'expenses/expense_list.html',
         {
-            'expenses': expenses
+            'expenses': expenses,
+            'search_query': search_query,
+            'category_filter': category_filter,
+            'categories': categories,
         }
     )
 def delete_expense(request, expense_id):

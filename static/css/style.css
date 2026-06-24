@@ -2,6 +2,10 @@ body {
     background-color: #14213d;
 }
 
+h1{
+    color: #ffffff !important;
+}
+
 .navbar{
     background-color: #14213d !important;
     

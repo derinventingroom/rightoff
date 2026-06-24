@@ -8,7 +8,7 @@
 
 <div class="row mb-4">
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="card shadow-sm">
             <div class="card-body text-center">
 
@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="card shadow-sm">
             <div class="card-body text-center">
 
@@ -40,6 +40,16 @@
         </div>
     </div>
 
+    <div class="col-md-4">
+       <div class="card shadow-sm">
+          <h5 class="card-title text-center">
+            Expenses By Category
+          </h5>
+          <div class="card-body">
+            <canvas id="categoryChart"></canvas>
+          </div>
+        </div>
+    </div>
 </div>
 
 <div class="card shadow-sm">
@@ -107,3 +117,33 @@
 </div>
 
 {% endblock %}
+<script>
+  const categoryLabels = [
+    {% for item in category_totals %}
+        "{{ item.category }}",
+    {% endfor %}
+  ];
+
+  const categoryAmounts = [
+    {% for item in category_totals %}
+        {{ item.total }},
+    {% endfor %}
+  ];
+
+const ctx = document.getElementById('categoryChart');
+
+new Chart(ctx, {
+    type: 'bar',
+
+    data: {
+        labels: categoryLabels,
+
+        datasets: [{
+            label: 'Expenses',
+
+            data: categoryAmounts
+        }]
+    }
+});
+
+</script>
