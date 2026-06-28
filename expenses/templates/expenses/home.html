@@ -33,7 +33,7 @@
                 </h5>
 
                 <h2>
-                    ${{ total_amount|default:"0.00" }}
+                    ${{ total_amount|floatformat:2|default:"0.00" }}
                 </h2>
 
             </div>
@@ -115,8 +115,6 @@
     </div>
 
 </div>
-
-{% endblock %}
 <script>
   const categoryLabels = [
     {% for item in category_totals %}
@@ -147,3 +145,5 @@ new Chart(ctx, {
 });
 
 </script>
+
+{% endblock %}

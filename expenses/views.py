@@ -1,18 +1,26 @@
 import csv
+
+from django.contrib import messages
+from django.db.models import Sum
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from django.db.models import Sum
-from .models import Expense
+
 from .forms import ExpenseForm
+from .models import Expense
 
 
 def home(request):
-
     if request.method == 'POST':
         form = ExpenseForm(request.POST)
 
         if form.is_valid():
             form.save()
+
+            messages.success(
+                request,
+                "Expense saved successfully!"
+            )
+
             return redirect('/')
 
     else:
@@ -27,11 +35,11 @@ def home(request):
     recent_expenses = Expense.objects.order_by('-date')[:5]
 
     category_totals = (
-    Expense.objects
-    .values('category')
-    .annotate(total=Sum('amount'))
-    .order_by('category')
-)
+        Expense.objects
+        .values('category')
+        .annotate(total=Sum('amount'))
+        .order_by('category')
+    )
 
     return render(
         request,
@@ -47,7 +55,6 @@ def home(request):
 
 
 def expense_list(request):
-
     expenses = Expense.objects.all().order_by('-date')
 
     search_query = request.GET.get('search')
@@ -85,8 +92,9 @@ def expense_list(request):
             'categories': categories,
         }
     )
-def delete_expense(request, expense_id):
 
+
+def delete_expense(request, expense_id):
     expense = get_object_or_404(
         Expense,
         id=expense_id
@@ -94,6 +102,12 @@ def delete_expense(request, expense_id):
 
     if request.method == 'POST':
         expense.delete()
+
+        messages.success(
+            request,
+            "Expense deleted successfully!"
+        )
+
         return redirect('/list/')
 
     return render(
@@ -103,15 +117,15 @@ def delete_expense(request, expense_id):
             'expense': expense
         }
     )
-def edit_expense(request, expense_id):
 
+
+def edit_expense(request, expense_id):
     expense = get_object_or_404(
         Expense,
         id=expense_id
     )
 
     if request.method == 'POST':
-
         form = ExpenseForm(
             request.POST,
             instance=expense
@@ -119,10 +133,15 @@ def edit_expense(request, expense_id):
 
         if form.is_valid():
             form.save()
+
+            messages.success(
+                request,
+                "Expense updated successfully!"
+            )
+
             return redirect('/list/')
 
     else:
-
         form = ExpenseForm(
             instance=expense
         )
@@ -135,8 +154,9 @@ def edit_expense(request, expense_id):
             'expense': expense
         }
     )
-def export_csv(request):
 
+
+def export_csv(request):
     response = HttpResponse(
         content_type='text/csv'
     )
@@ -157,7 +177,6 @@ def export_csv(request):
     expenses = Expense.objects.all().order_by('-date')
 
     for expense in expenses:
-
         writer.writerow([
             expense.date,
             expense.category,
