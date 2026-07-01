@@ -1,67 +1,76 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
 <h1 class="mb-4">
-    RightOff Dashboard
+    Dashboard
 </h1>
 
-<div class="row mb-4">
+<div class="row mb-4 align-items-stretch">
+    <div class="col-md-6 d-flex">
+        <div class="card card-style-purple shadow-sm dashboard-card flex-fill">
 
-    <div class="col-md-4">
-        <div class="card shadow-sm">
-            <div class="card-body text-center">
-
-                <h5 class="card-title">
-                    Total Expenses
-                </h5>
-
-                <h2>
-                    {{ total_expenses }}
-                </h2>
+            <div class="card-body card-style text-center">
+            <div>
+                <img
+                    src="{% static 'images/receipt-placeholder.png' %}"
+                    alt="Cash Stack"
+                >
+            </div>
+            <div>
+            <h5 class="card-title">
+                Total Expenses
+            </h5>
+            <h2>
+                {{ total_expenses }}
+            </h2>
+            </div>
 
             </div>
         </div>
     </div>
 
-    <div class="col-md-4">
-        <div class="card shadow-sm">
-            <div class="card-body text-center">
-
+    <div class="col-md-6 d-flex">
+        <div class="card shadow-sm dashboard-card flex-fill">
+            <div class="card-body card-style text-center">
+               <div>
+                    <img
+                        src="{% static 'images/dollar-placeholder.png' %}"
+                        alt="Cash Stack"
+                    >
+               </div>
+               <div>
                 <h5 class="card-title">
-                    Total Amount
+                   Total Amount
                 </h5>
-
-                <h2>
-                    ${{ total_amount|floatformat:2|default:"0.00" }}
-                </h2>
-
+                    <h2>
+                        ${{ total_amount|floatformat:2|default:"0.00" }}
+                    </h2>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="col-md-4">
-       <div class="card shadow-sm">
-          <h5 class="card-title text-center">
+</div>
+<div class="row">
+    <div class="col-md-12 mb-4 d-flex">
+       <div class="card shadow-sm dashboard-card chart-card flex-fill">
+          <h5 class="card-title card-title-style text-center">
             Expenses By Category
           </h5>
           <div class="card-body">
-            <canvas id="categoryChart"></canvas>
+            <canvas id="categoryChart" height="220"></canvas>
           </div>
         </div>
     </div>
 </div>
 
 <div class="card shadow-sm">
-
-    <div class="card-header">
+    <h5 class="card-header">
         Add Expense
-    </div>
-
+    </h5>
     <div class="card-body">
-
         <form method="POST">
-
             {% csrf_token %}
 
             <div class="row">
@@ -98,7 +107,7 @@
 
             <button
                 type="submit"
-                class="btn btn-primary"
+                class="btn btn-main"
             >
                 Save Expense
             </button>
@@ -130,6 +139,7 @@
 
 const ctx = document.getElementById('categoryChart');
 
+
 new Chart(ctx, {
     type: 'bar',
 
@@ -138,9 +148,53 @@ new Chart(ctx, {
 
         datasets: [{
             label: 'Expenses',
-
-            data: categoryAmounts
+            data: categoryAmounts,
+            backgroundColor: '#5B5BD6',
+            hoverBackgroundColor: '#7474E8',
+            borderRadius: 8,
+            barThickness: 100
         }]
+    },
+
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
+
+        scales: {
+            x: {
+                grid: {
+                    display: false
+                },
+
+                ticks: {
+                    color: '#6B7280',
+                    font: {
+                        family: 'Inter',
+                        size: 12
+                    }
+                }
+            },
+
+            y: {
+                beginAtZero: true,
+
+                grid: {
+                    color: '#E5E7EB'
+                },
+
+                ticks: {
+                    color: '#6B7280',
+                    font: {
+                        family: 'Inter',
+                        size: 12
+                    }
+                }
+            }
+        }
     }
 });
 
