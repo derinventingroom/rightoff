@@ -1,9 +1,10 @@
 body {
-        background-image: url("../images/stacked-waves-haikei.svg");
+        /* background-image: url("../images/stacked-waves-haikei.svg");
         background-repeat: no-repeat;
         background-position: center center;
-        background-size: cover;
+        background-size: cover; */
     /* background-color: #F5F7FA; */
+    background-color: #2F4765;
     /* background-image: linear-gradient(to top, #566981, #495c76, #3b506b, #2e4460, #213855); */
     /* background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12) !important; */
     /* min-height: 100vh;
@@ -42,7 +43,7 @@ body::after {
     z-index: -1;
 } */
 h1{
-    color: #1F2937 !important;
+    color: #ffffff !important;
 }
 
 .navbar{
@@ -61,7 +62,7 @@ h1{
 }
 
 .card {
-    border: 0 !important;
+    border: 0;
     background: #FCFCFD;
     filter: drop-shadow(0px 4px 8.9px rgba(0, 0, 0, 0.1));
 }
@@ -85,14 +86,25 @@ img{
     border-radius: 100%;
 }
 
-.card-style-purple{
+/* .card-style-purple{
     background-color: #5b5bcf !important;
+    border: 4px solid #000000 !important;
     color: #ffffff;
-    /* background-image: linear-gradient(to right top, #9e9bf4, #a98ce2, #b27ccf, #b86db9, #ba5ea3) !important;
-    color: #fff; */
+    background-image: linear-gradient(to right top, #9e9bf4, #a98ce2, #b27ccf, #b86db9, #ba5ea3) !important;
+    color: #fff;
+} */
+
+ .card-style-red{
+    background-color: #CC2B51;
+    color: #fff;
 }
 
-/* .card-style-orange{
+.card-style-green{
+    background-color: #469583;
+    color: #fff;
+}
+
+.card-style-orange{
     background-color: #E1753D;
     color: #fff;
 }
@@ -102,7 +114,11 @@ img{
     color: #fff;
 }
 
-.card-style-purple{
+.form-control, .form-select{
+   background-color: #E1753D !important; 
+}
+
+/* .card-style-purple{
     background-color: #5b5bcf;
     color: #fff;
 } */
@@ -120,7 +136,7 @@ img{
     width: 250px;
     min-height: 100vh;
     padding: 1.5rem;
-    background: #000000;
+    background: #2F4765;
     border-right: 1px solid #e5e7eb;
     position: fixed;
     left: 0;
@@ -171,6 +187,7 @@ img{
 }
 
 .card-title-style{
+    color: #ffffff !important;
     padding: 20px;
 }
 

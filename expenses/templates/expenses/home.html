@@ -9,7 +9,7 @@
 
 <div class="row mb-4 align-items-stretch">
     <div class="col-md-6 d-flex">
-        <div class="card card-style-purple shadow-md dashboard-card flex-fill">
+        <div class="card card-style-red shadow-md dashboard-card flex-fill">
 
             <div class="card-body card-style text-center">
             <div>
@@ -32,7 +32,7 @@
     </div>
 
     <div class="col-md-6 d-flex">
-        <div class="card shadow-sm dashboard-card flex-fill">
+        <div class="card card-style-green shadow-sm dashboard-card flex-fill">
             <div class="card-body card-style text-center">
                <div>
                     <img
@@ -54,7 +54,7 @@
 </div>
 <div class="row">
     <div class="col-md-12 mb-4 d-flex">
-       <div class="card shadow-sm dashboard-card chart-card flex-fill">
+       <div class="card  card-style-blue shadow-sm dashboard-card chart-card flex-fill">
           <h5 class="card-title card-title-style text-center">
             Expenses By Category
           </h5>
@@ -65,8 +65,8 @@
     </div>
 </div>
 
-<div class="card shadow-sm">
-    <h5 class="card-header">
+<div class="card card-style-orange shadow-sm">
+    <h5 class="card-header card-style-orange">
         Add Expense
     </h5>
     <div class="card-body">
@@ -149,7 +149,7 @@ new Chart(ctx, {
         datasets: [{
             label: 'Expenses',
             data: categoryAmounts,
-            backgroundColor: '#5B5BD6',
+            backgroundColor: '#ffffff',
             hoverBackgroundColor: '#7474E8',
             borderRadius: 8,
             barThickness: 100
@@ -171,7 +171,7 @@ new Chart(ctx, {
                 },
 
                 ticks: {
-                    color: '#6B7280',
+                    color: '#ffffff',
                     font: {
                         family: 'Inter',
                         size: 12
@@ -183,11 +183,11 @@ new Chart(ctx, {
                 beginAtZero: true,
 
                 grid: {
-                    color: '#E5E7EB'
+                    color: '#ffffff'
                 },
 
                 ticks: {
-                    color: '#6B7280',
+                    color: '#ffffff',
                     font: {
                         family: 'Inter',
                         size: 12
