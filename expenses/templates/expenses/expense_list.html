@@ -10,7 +10,7 @@
 
     <a
         href="/export/"
-        class="btn btn-success"
+        class="btn btn-export btn-success"
     >
         Export CSV
     </a>
@@ -65,7 +65,7 @@
 
         <button
             type="submit"
-            class="btn btn-primary w-100"
+            class="btn btn-main w-100"
         >
             Filter
         </button>
@@ -80,7 +80,7 @@
 
     <a
         href="/list/"
-        class="btn btn-secondary btn-sm"
+        class="btn btn-filter btn-sm"
     >
         Clear Filters
     </a>
@@ -113,14 +113,14 @@
 
                 <a
                     href="/edit/{{ expense.id }}/"
-                    class="btn btn-sm btn-warning"
+                    class="btn btn-sm btn-warning btn-edit"
                 >
                     Edit
                 </a>
 
                 <a
                     href="/delete/{{ expense.id }}/"
-                    class="btn btn-sm btn-danger"
+                    class="btn btn-sm btn-danger btn-delete"
                 >
                     Delete
                 </a>
