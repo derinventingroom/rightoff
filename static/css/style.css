@@ -1,49 +1,9 @@
 body {
-        /* background-image: url("../images/stacked-waves-haikei.svg");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover; */
-    /* background-color: #F5F7FA; */
-    background-color: #2F4765;
-    /* background-image: linear-gradient(to top, #566981, #495c76, #3b506b, #2e4460, #213855); */
-    /* background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12) !important; */
-    /* min-height: 100vh;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(155, 93, 229, 0.18), transparent 30%),
-        radial-gradient(circle at 80% 10%, rgba(240, 138, 93, 0.16), transparent 28%),
-        radial-gradient(circle at 50% 90%, rgba(91, 91, 214, 0.14), transparent 35%),
-        #f6f8fb;
-    position: relative;
-    overflow-x: hidden; */
-}
+        background-color: #E7E7E7;
+   }
 
-/* body::before {
-    content: "";
-    position: fixed;
-    width: 420px;
-    height: 420px;
-    border-radius: 50%;
-    background: rgba(155, 93, 229, 0.22);
-    filter: blur(90px);
-    top: 120px;
-    right: 140px;
-    z-index: -1;
-}
-
-body::after {
-    content: "";
-    position: fixed;
-    width: 380px;
-    height: 380px;
-    border-radius: 50%;
-    background: rgba(240, 138, 93, 0.18);
-    filter: blur(90px);
-    bottom: 80px;
-    left: 120px;
-    z-index: -1;
-} */
 h1{
-    color: #ffffff !important;
+    color: #1F2937 !important;
 }
 
 .navbar{
@@ -62,21 +22,19 @@ h1{
 }
 
 .btn-main{
-    background-color: #65B1DE;
+    background-color: #5B5BD6;
 }
 
 .btn-main:hover{
-   background-color: #448db8; 
+   background-color: #7474E8; 
 }
 
 .btn-filter{
-    /* background-color: #ffffff; */
-    color:#ffffff;
+    color:#7474E8;
 }
 
 .btn-filter:hover{
-    /* background-color: #ffffff; */
-    color:#ffffff;  
+    color:#7474E8;  
 }
 
 .btn-export{
@@ -96,13 +54,13 @@ h1{
 }
 
 .card {
-    border: 3px solid #ffffff !important;
-    background: #FCFCFD;
-    filter: drop-shadow(0px 4px 8.9px rgba(0, 0, 0, 0.1));
+    border: none;
+    background: #F5F7FA;
+    /* filter: drop-shadow(0px 4px 8.9px rgba(0, 0, 0, 0.1)); */
 }
 
 .card-header{
-    background-color: #ffffff;
+    background-color: #F5F7FA;
 }
 
 .card-style{
@@ -113,11 +71,34 @@ h1{
     column-gap: 30px;
 }
 
-img{
-    height: 100px;
-    background-color: #F5F7FA;
-    padding: 20px;
-    border-radius: 100%;
+.card-icon{
+        width: 88px;
+    height: 88px;
+    min-width: 88px;
+    min-height: 88px;
+
+    border-radius: 50%;
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+i{
+    
+    color: #5b5bcf;
+    font-size: 36px;
+    line-height: 1;
+}
+
+
+
+ .card-style-purple{
+    background-color: #5B5BD6;
+    color: #fff;
 }
 
  .card-style-red{
@@ -141,9 +122,7 @@ img{
 }
 
 .form-control, .form-select{
-   /* background-color: #E1753D !important;  */
    border: 2px solid #ffffff;
-   /* color: #ffffff; */
 }
 
 .navbar {
@@ -159,8 +138,8 @@ img{
     width: 250px;
     min-height: 100vh;
     padding: 1.5rem;
-    background: #2F4765;
-    border-right: 1px solid #e5e7eb;
+    background: #fdfdfd;
+    border-right: 1px solid #ffffff;
     position: fixed;
     left: 0;
     top: 0;
@@ -169,7 +148,7 @@ img{
 .sidebar-brand {
     font-size: 1.4rem;
     font-weight: 700;
-    color: #e5e7eb;
+    color: #5B5BD6;
     margin-bottom: 2rem;
 }
 
@@ -183,7 +162,7 @@ img{
     display: block;
     padding: .75rem 1rem;
     border-radius: 12px;
-    color: #ffffff;
+    color: #1F2937;
     text-decoration: none;
     font-weight: 600;
 }
@@ -210,7 +189,6 @@ img{
 }
 
 .card-title-style{
-    color: #ffffff !important;
     padding: 20px;
 }
 

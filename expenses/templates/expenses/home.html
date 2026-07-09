@@ -9,14 +9,15 @@
 
 <div class="row mb-4 align-items-stretch">
     <div class="col-md-6 d-flex">
-        <div class="card card-style-red shadow-md dashboard-card flex-fill">
+        <div class="card card-style-purple dashboard-card flex-fill">
 
             <div class="card-body card-style text-center">
             <div>
-                <img
+                <!-- <img
                     src="{% static 'images/receipt-placeholder.png' %}"
                     alt="Cash Stack"
-                >
+                > -->
+                <div class="card-icon"><i class="fa-solid fa-receipt"></i></div>
             </div>
             <div>
             <h5 class="card-title">
@@ -32,13 +33,14 @@
     </div>
 
     <div class="col-md-6 d-flex">
-        <div class="card card-style-green shadow-sm dashboard-card flex-fill">
+        <div class="card card-style-purple dashboard-card flex-fill">
             <div class="card-body card-style text-center">
                <div>
-                    <img
+                    <!-- <img
                         src="{% static 'images/dollar-placeholder.png' %}"
                         alt="Cash Stack"
-                    >
+                    > -->
+                    <div class="card-icon"><i class="fa-solid fa-money-bills"></i></div>
                </div>
                <div>
                 <h5 class="card-title">
@@ -54,7 +56,7 @@
 </div>
 <div class="row">
     <div class="col-md-12 mb-4 d-flex">
-       <div class="card  card-style-blue shadow-sm dashboard-card chart-card flex-fill">
+       <div class="card dashboard-card chart-card flex-fill">
           <h5 class="card-title card-title-style text-center">
             Expenses By Category
           </h5>
@@ -65,8 +67,8 @@
     </div>
 </div>
 
-<div id="add-expense" class="card card-style-orange shadow-sm">
-    <h5 class="card-header card-style-orange">
+<div id="add-expense" class="card">
+    <h5 class="card-title card-title-style text-center">
         Add Expense
     </h5>
     <div class="card-body">
@@ -149,8 +151,8 @@ new Chart(ctx, {
         datasets: [{
             label: 'Expenses',
             data: categoryAmounts,
-            backgroundColor: '#ffffff',
-            hoverBackgroundColor: '#ffffff',
+            backgroundColor: '#5B5BD6',
+            hoverBackgroundColor: '#7474E8',
             borderRadius: 8,
             barThickness: 100
         }]
@@ -171,7 +173,7 @@ new Chart(ctx, {
                 },
 
                 ticks: {
-                    color: '#ffffff',
+                    color: '#6B7280',
                     font: {
                         family: 'Inter',
                         size: 12
@@ -183,11 +185,11 @@ new Chart(ctx, {
                 beginAtZero: true,
 
                 grid: {
-                    color: '#ffffff'
+                    color: '#E5E7EB'
                 },
 
                 ticks: {
-                    color: '#ffffff',
+                    color: '#6B7280',
                     font: {
                         family: 'Inter',
                         size: 12
