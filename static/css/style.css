@@ -186,6 +186,10 @@ i{
     gap: 10px;
 }
 
+.link-info-text i{
+    font-size: 22px !important;
+}
+
 .main-content {
     flex: 1;
     margin-left: 250px;
